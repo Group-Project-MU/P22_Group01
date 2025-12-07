@@ -1,0 +1,16 @@
+[
+  {
+    "method": "text-rank",
+    "prompt": "focus on TextRank and LexRank",
+    "prompt_weight": 1.0,
+    "sentences_count": 5,
+    "execution_time": 0.15366148948669434,
+    "summary": [
+      "Unsupervised approach: TextRank Another keyphrase extraction algorithm is TextRank.",
+      "TextRank and LexRank The unsupervised approach to summarization is also quite similar in spirit to unsupervised keyphrase extraction and gets around the issue of costly training data.",
+      "LexRank is an algorithm essentially identical to TextRank, and both use this approach for document summarization.",
+      "In both LexRank and TextRank, a graph is constructed by creating a vertex for each sentence in the document.",
+      "Unlike TextRank, LexRank has been applied to multi-document summarization."
+    ]
+  }
+]
