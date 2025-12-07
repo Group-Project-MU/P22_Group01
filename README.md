@@ -18,7 +18,7 @@ python test_model_performance.py --methods lsa luhn lex-rank --sentences=10
 
 python sumy_summarizer.py --article article.txt --sentences=5 --prompt "focus on TextRank and LexRank"
 
-Using as a library to adjust the scale of rating in TextRank
+Using as a library to adjust the scale of rating in TextRank or just try the SumyTestTR.py
 ```python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
