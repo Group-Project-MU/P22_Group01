@@ -18,6 +18,38 @@ python test_model_performance.py --methods lsa luhn lex-rank --sentences=10
 
 python sumy_summarizer.py --article article.txt --sentences=5 --prompt "focus on TextRank and LexRank"
 
+Using as a library to adjust the scale of rating in TextRank
+```python
+# -*- coding: utf-8 -*-
+
+from __future__ import absolute_import
+from __future__ import division, print_function, unicode_literals
+
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.text_rank_mod2 import TextRankSummarizermod as Summarizer
+from sumy.nlp.stemmers import Stemmer
+from sumy.utils import get_stop_words
+
+
+LANGUAGE = "chinese"
+SENTENCES_COUNT = 20
+
+
+if __name__ == "__main__":
+    url = "https://www.hkmu.edu.hk/news/sc/hkmu-faculty-and-students-use-technology-to-enhance-travel-safety-and-crop-harvesting-in-chinas-hometown-of-lychees/"
+    parser = HtmlParser.from_url(url, Tokenizer(LANGUAGE))
+    # or for plain text files
+    # parser = PlaintextParser.from_file("document.txt", Tokenizer(LANGUAGE))
+    # parser = PlaintextParser.from_string("Check this out.", Tokenizer(LANGUAGE))
+    stemmer = Stemmer(LANGUAGE)
+
+    summarizer = Summarizer(stemmer, alpha = 1, rate = 0)
+    summarizer.stop_words = get_stop_words(LANGUAGE)
+
+    for sentence in summarizer(parser.document, SENTENCES_COUNT):
+        print(sentence)
+```
 # Automatic text summarizer
 
 
